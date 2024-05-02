@@ -39,7 +39,7 @@ class UserController extends Controller
             'role' => 'required',
             'password' => 'required | min:8',
             'position' => 'required',
-            'departmen' => 'required',
+            'department' => 'required',
 
         ]);
 
@@ -49,7 +49,7 @@ class UserController extends Controller
         $user->phone = $request->phone;
         $user->role = $request->role;
         $user->position = $request->position;
-        $user->departement = $request->departement;
+        $user->department = $request->department;
         $user->password = Hash::make($request->password);
         $user->save();
 
@@ -79,7 +79,7 @@ class UserController extends Controller
             'phone' => 'required',
             'role' => 'required',
             'position' => 'required',
-            'departmen' => 'required',
+            'department' => 'required',
         ]);
 
         $user = User::find($id);
@@ -87,6 +87,9 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->role = $request->role;
+        $user->position = $request->position;
+        $user->department = $request->department;
+
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
